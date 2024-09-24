@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Welcome to the admin dashboard</title>
+    <meta
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+      name="viewport"
+    />
+    <link
+      rel="icon"
+      href="/images/abc restaurant logo.png"
+      type="image/x-icon"
+    />
+
+    <!-- Fonts and icons -->
+    <script src="/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+      WebFont.load({
+        google: { families: ["Public Sans:300,400,500,600,700"] },
+        custom: {
+          families: [
+            "Font Awesome 5 Solid",
+            "Font Awesome 5 Regular",
+            "Font Awesome 5 Brands",
+            "simple-line-icons",
+          ],
+          urls: ["/css/fonts.min.css"],
+        },
+        active: function () {
+          sessionStorage.fonts = true;
+        },
+      });
+    </script>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/plugins.min.css" />
+    <link rel="stylesheet" href="/css/kaiadmin.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link rel="stylesheet" href="/css/demo.css" />
+    <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+-->
+  </head>
+  <body>
+    
+
+  
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <div class="sidebar" data-background-color="dark">
+          <div class="sidebar-logo">
+            <!-- Logo Header -->
+            <div class="logo-header" data-background-color="dark">
+              <a href="/admin" class="logo">
+                <img
+                src="/images/abc restaurant logo.png"
+                alt="navbar brand"
+                class="navbar-brand"
+                height="20"
+                />
+              </a>
+              <div class="nav-toggle">
+                <button class="btn btn-toggle toggle-sidebar">
+                  <i class="gg-menu-right"></i>
+                </button>
+                <button class="btn btn-toggle sidenav-toggler">
+                  <i class="gg-menu-left"></i>
+                </button>
+              </div>
+              <button class="topbar-toggler more">
+                <i class="gg-more-vertical-alt"></i>
+              </button>
+            </div>
+            <!-- End Logo Header -->
+          </div>
+          <div class="sidebar-wrapper scrollbar scrollbar-inner">
+            <div class="sidebar-content">
+              <ul class="nav nav-secondary">
+                <li class="nav-item active">
+                  <a
+                    data-bs-toggle="collapse"
+                    href="#dashboard"
+                    class="collapsed"
+                    aria-expanded="false"
+                  >
+                    <i class="fas fa-home"></i>
+                    <p>Dashboard</p>
+                    <span class="caret"></span>
+                  </a>
+                  <div class="collapse" id="dashboard">
+                    <ul class="nav nav-collapse">
+                      <li>
+                        <a href="/admin">
+                          <span class="sub-item">View Dashboard</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="nav-section">
+                  <span class="sidebar-mini-icon">
+                    <i class="fa fa-ellipsis-h"></i>
+                  </span>
+                  <h4 class="text-section">Components</h4>
+                </li>
+                <li class="nav-item">
+                  <a data-bs-toggle="collapse" href="#base">
+                    <i class="fas fa-layer-group"></i>
+                    <p>Add Items</p>
+                    <span class="caret"></span>
+                  </a>
+                  <div class="collapse" id="base">
+                    <ul class="nav nav-collapse">
+                      <li>
+                        <a href="/adminadd/addfoodmenu">
+                          <span class="sub-item">Add Breakfast Menu</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/adminaddlunch/addfoodmenulunch">
+                          <span class="sub-item">Add Lunch Menu</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/adminadddinner/addfoodmenudinner">
+                          <span class="sub-item">Add Dinner Menu</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/adminadddesserts/addfoodmenudesserts">
+                          <span class="sub-item">Add Desserts Menu</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/adminadddrink/addfoodmenudrink">
+                          <span class="sub-item">Add Drink Menu</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/adminaddgallery/addfoodgallery">
+                          <span class="sub-item">Add Food Gallery</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a data-bs-toggle="collapse" href="#sidebarLayouts">
+                    <i class="fas fa-th-list"></i>
+                    <p>View Items</p>
+                    <span class="caret"></span>
+                  </a>
+                  <div class="collapse" id="sidebarLayouts">
+                    <ul class="nav nav-collapse">
+                      <li>
+                        <a href="/adminadd">
+                          <span class="sub-item">View Breakfast Menu</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/adminaddlunch">
+                          <span class="sub-item">View Lunch Menu</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/adminadddinner">
+                          <span class="sub-item">View Dinner Menu</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/adminadddesserts">
+                          <span class="sub-item">View Desserts Menu</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/adminadddrink">
+                          <span class="sub-item">View Drink Menu</span>
+                        </a>
+                      </li>
+                      <li> 
+                        <a href="/adminaddgallery">
+                          <span class="sub-item">View Food Gallery</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/customerinterfaceorderfood/adminvieworderfood">
+                          <span class="sub-item">View Orders</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/customerinterface/adminviewtablereservations">
+                          <span class="sub-item">View Table Reservatioins</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/customerfeedback/adminviewfeedback">
+                          <span class="sub-item">View Feedbacks</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a data-bs-toggle="collapse" href="#maps">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Maps</p>
+                    <span class="caret"></span>
+                  </a>
+                  <div class="collapse" id="maps">
+                    <ul class="nav nav-collapse">
+                      <li>
+                        <a href="/adminadd/googlemaps">
+                          <span class="sub-item">Google Maps</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- End Sidebar -->
+  
+        <div class="main-panel">
+          <div class="main-header">
+            <div class="main-header-logo">
+  
+              <!-- Logo Header Mobile size-->
+              <div class="logo-header" data-background-color="dark">
+                <a href="/admin" class="logo">
+                  <img
+                  src="/images/abc restaurant logo.png"
+                  alt="navbar brand"
+                  class="navbar-brand"
+                  height="20"
+                  />
+                </a>
+                <div class="nav-toggle">
+                  <button class="btn btn-toggle toggle-sidebar">
+                    <i class="gg-menu-right"></i>
+                  </button>
+                  <button class="btn btn-toggle sidenav-toggler">
+                    <i class="gg-menu-left"></i>
+                  </button>
+                </div>
+                <button class="topbar-toggler more">
+                  <i class="gg-more-vertical-alt"></i>
+                </button>
+              </div>
+  
+              <!-- End Logo Header Mobile size-->
+            </div>
+  
+            <!-- Navbar Header -->
+            <nav
+              class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom"
+            >
+              <div class="container-fluid">
+                <nav
+                  class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex"
+                >
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <button type="submit" class="btn btn-search pe-1">
+                        <i class="fa fa-search search-icon"></i>
+                      </button>
+                    </div>
+                    <input
+                      type="text"
+                      placeholder="Search ..."
+                      class="form-control"
+                    />
+                  </div>
+                </nav>
+  
+                <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
+                  <li
+                    class="nav-item topbar-icon dropdown hidden-caret d-flex d-lg-none"
+                  >
+                    <a
+                      class="nav-link dropdown-toggle"
+                      data-bs-toggle="dropdown"
+                      href="#"
+                      role="button"
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                    >
+                      <i class="fa fa-search"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-search animated fadeIn">
+                      <form class="navbar-left navbar-form nav-search">
+                        <div class="input-group">
+                          <input
+                            type="text"
+                            placeholder="Search ..."
+                            class="form-control"
+                          />
+                        </div>
+                      </form>
+                    </ul>
+                  </li>
+  
+                  <li class="nav-item topbar-icon dropdown hidden-caret">
+                    <a
+                      class="nav-link"
+                      data-bs-toggle="dropdown"
+                      href="#"
+                      aria-expanded="false"
+                    >
+                      <i class="fas fa-layer-group"></i>
+                    </a>
+                    <div class="dropdown-menu quick-actions animated fadeIn">
+                      <div class="quick-actions-header">
+                        <span class="title mb-1">Quick Actions</span>
+                        <span class="subtitle op-7">Shortcuts</span>
+                      </div>
+                      <div class="quick-actions-scroll scrollbar-outer">
+                        <div class="quick-actions-items">
+                          <div class="row m-0">
+                            <a class="col-6 col-md-4 p-0" href="https://www.timeanddate.com/calendar/?year=2024&country=116" target="_blank">
+                              <div class="quick-actions-item">
+                                <div class="avatar-item bg-danger rounded-circle">
+                                  <i class="far fa-calendar-alt"></i>
+                                </div>
+                                <span class="text">Calendar</span>
+                              </div>
+                            </a>
+                            <a class="col-6 col-md-4 p-0" href="/adminadd/googlemaps">
+                              <div class="quick-actions-item">
+                                <div
+                                  class="avatar-item bg-warning rounded-circle"
+                                >
+                                  <i class="fas fa-map"></i>
+                                </div>
+                                <span class="text">Maps</span>
+                              </div>
+                            </a>
+  
+                            <a class="col-6 col-md-4 p-0" href="https://support.google.com/mail/answer/56256?hl=en" target="_blank">
+                              <div class="quick-actions-item">
+                                <div
+                                  class="avatar-item bg-success rounded-circle"
+                                >
+                                  <i class="fas fa-envelope"></i>
+                                </div>
+                                <span class="text">Emails</span>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+  
+                  <li class="nav-item topbar-user dropdown hidden-caret">
+                    <a
+                      class="dropdown-toggle profile-pic"
+                      data-bs-toggle="dropdown"
+                      href="#"
+                      aria-expanded="false"
+                    >
+                      <div class="avatar-sm">
+                        <img
+                          src="/images/abc restaurant logo.png"
+                          alt="..."
+                          class="avatar-img rounded-circle"
+                        />
+                      </div>
+                      <span class="profile-username">
+                        <span class="op-7">Hi,</span>
+                        <span class="fw-bold">Admin</span>
+                      </span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user animated fadeIn">
+                      <div class="dropdown-user-scroll scrollbar-outer">
+                        <li>
+                          <div class="user-box">
+                            <div class="avatar-lg">
+                              <img
+                                src="/images/abc restaurant logo.png"
+                                alt="image profile"
+                                class="avatar-img rounded"
+                              />
+                            </div>
+                            <div class="u-text">
+                              <h4>Admin</h4>
+                              <p class="text-muted">admin@gmail.com</p>
+                              <a
+                                href="/admin"
+                                class="btn btn-xs btn-secondary btn-sm"
+                                >View Profile</a
+                              >
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="/admin">My Profile</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Logout</a>
+                        </li>
+                      </div>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+            <!-- End Navbar -->
+          </div>
+  
+          <div class="container">
+            <div class="page-inner">
+              <div
+              class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4"
+            >
+              <div>
+                <h3 class="fw-bold mb-3">Welcome</h3>
+                <h6 class="op-7 mb-2">ABC Restaurant Admin Dashboard</h6>
+              </div>
+              <div class="ms-md-auto py-2 py-md-0">
+                <a href="/adminadd" class="btn btn-label-info btn-round me-2">View Menu</a>
+                <a href="/adminadd/addfoodmenu" class="btn btn-primary btn-round">Add Menu</a>
+              </div>
+            </div>
+
+
+
+
+              <div class="container">
+                <h1 class="text-center my-4">View Dinner Menu</h1>
+                <a class="btn btn-primary" href="/adminadddinner/addfoodmenudinner">Add Dinner</a>
+        
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Id</th>
+                      <th>Name</th>
+                      <th>Category</th>
+                      <th>Description</th>
+                      <th>Price</th>
+                      <th>Image</th>
+                      <th>Created At</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+        
+                  <tbody>
+                    <tr th:each="adminAddDinner : ${adminadddinner}">
+                      <td th:text="${adminAddDinner.id}"></td>
+                      <td th:text="${adminAddDinner.name}"></td>
+                      <td th:text="${adminAddDinner.category}"></td>
+                      <td th:text="${adminAddDinner.description}"></td>
+                      <td th:text="@{${adminAddDinner.price} + ' LKR'}"></td>
+        
+                      <td>
+                        <img th:src="@{'/images/' + ${adminAddDinner.imageFileName}}" 
+                        alt="adminAddDinner Image" width="100">
+                      </td>
+                    
+        
+                      <td th:text="${adminAddDinner.createdAt != null ? adminAddDinner.createdAt.toString().substring(0,10) : 'N/A'}"></td>
+        
+        
+                      <td style="white-space:nowrap;">
+                        <a class="btn btn-primary btn-sm" 
+                        th:href="@{/adminadddinner/edit(id=${adminAddDinner.id})}">Edit</a>
+                        <a class="btn btn-danger btn-sm"
+                        th:href="@{/adminadddinner/delete(id=${adminAddDinner.id})}"
+                        onclick="return confirm ('Are you sure?')">Delete</a>
+                      </td>
+        
+                    </tr>
+                  </tbody>
+        
+                </table>
+        
+            </div>
+            </div>
+          </div>
+  
+          <footer class="footer">
+            <div class="container-fluid d-flex justify-content-between">
+              <nav class="pull-left">
+                <ul class="nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      Shakil
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"> Help </a>
+                  </li>
+                </ul>
+              </nav>
+              <div class="copyright">
+                2024, made with <i class="fa fa-heart heart text-danger"></i> by
+                <a href="http://www.themekita.com">Shakil</a>
+              </div>
+              <div>
+                Distributed by
+                <a target="_blank" href="#">Shakil</a>.
+              </div>
+            </div>
+          </footer>
+        </div>
+  
+        <!-- Custom template | don't include it in your project! -->
+        <div class="custom-template">
+          <div class="title">Settings</div>
+          <div class="custom-content">
+            <div class="switcher">
+              <div class="switch-block">
+                <h4>Logo Header</h4>
+                <div class="btnSwitch">
+                  <button
+                    type="button"
+                    class="selected changeLogoHeaderColor"
+                    data-color="dark"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeLogoHeaderColor"
+                    data-color="blue"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeLogoHeaderColor"
+                    data-color="purple"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeLogoHeaderColor"
+                    data-color="light-blue"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeLogoHeaderColor"
+                    data-color="green"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeLogoHeaderColor"
+                    data-color="orange"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeLogoHeaderColor"
+                    data-color="red"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeLogoHeaderColor"
+                    data-color="white"
+                  ></button>
+                  <br />
+                  <button
+                    type="button"
+                    class="changeLogoHeaderColor"
+                    data-color="dark2"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeLogoHeaderColor"
+                    data-color="blue2"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeLogoHeaderColor"
+                    data-color="purple2"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeLogoHeaderColor"
+                    data-color="light-blue2"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeLogoHeaderColor"
+                    data-color="green2"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeLogoHeaderColor"
+                    data-color="orange2"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeLogoHeaderColor"
+                    data-color="red2"
+                  ></button>
+                </div>
+              </div>
+              <div class="switch-block">
+                <h4>Navbar Header</h4>
+                <div class="btnSwitch">
+                  <button
+                    type="button"
+                    class="changeTopBarColor"
+                    data-color="dark"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeTopBarColor"
+                    data-color="blue"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeTopBarColor"
+                    data-color="purple"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeTopBarColor"
+                    data-color="light-blue"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeTopBarColor"
+                    data-color="green"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeTopBarColor"
+                    data-color="orange"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeTopBarColor"
+                    data-color="red"
+                  ></button>
+                  <button
+                    type="button"
+                    class="selected changeTopBarColor"
+                    data-color="white"
+                  ></button>
+                  <br />
+                  <button
+                    type="button"
+                    class="changeTopBarColor"
+                    data-color="dark2"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeTopBarColor"
+                    data-color="blue2"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeTopBarColor"
+                    data-color="purple2"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeTopBarColor"
+                    data-color="light-blue2"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeTopBarColor"
+                    data-color="green2"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeTopBarColor"
+                    data-color="orange2"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeTopBarColor"
+                    data-color="red2"
+                  ></button>
+                </div>
+              </div>
+              <div class="switch-block">
+                <h4>Sidebar</h4>
+                <div class="btnSwitch">
+                  <button
+                    type="button"
+                    class="changeSideBarColor"
+                    data-color="white"
+                  ></button>
+                  <button
+                    type="button"
+                    class="selected changeSideBarColor"
+                    data-color="dark"
+                  ></button>
+                  <button
+                    type="button"
+                    class="changeSideBarColor"
+                    data-color="dark2"
+                  ></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="custom-toggle">
+            <i class="fas fa-palette"></i>
+          </div>
+        </div>
+        <!-- End Custom template -->
+      </div>
+
+          <!--   Core JS Files   -->
+    <script src="/js/core/jquery-3.7.1.min.js"></script>
+    <script src="/js/core/popper.min.js"></script>
+    <script src="/js/core/bootstrap.min.js"></script>
+
+    <!-- jQuery Scrollbar -->
+    <script src="/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+
+    <!-- Chart JS -->
+    <script src="/js/plugin/chart.js/chart.min.js"></script>
+
+    <!-- jQuery Sparkline -->
+    <script src="/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- Chart Circle -->
+    <script src="/js/plugin/chart-circle/circles.min.js"></script>
+
+    <!-- Datatables -->
+    <script src="/js/plugin/datatables/datatables.min.js"></script>
+
+    <!-- jQuery Vector Maps -->
+    <script src="/js/plugin/jsvectormap/jsvectormap.min.js"></script>
+    <script src="/js/plugin/jsvectormap/world.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="/js/plugin/sweetalert/sweetalert.min.js"></script>
+
+    <!-- Kaiadmin JS -->
+    <script src="/js/kaiadmin.min.js"></script>
+
+    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
+    <script src="/js/setting-demo.js"></script>
+
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+-->
+  </body>
+</html>

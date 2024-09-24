@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Ionicons for icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="/css/styleregandlog.css">
+    <script src="/js/signup.js" defer></script>
+    <title>Login</title>
+    <link
+    rel="icon"
+    href="/images/abc restaurant logo.png"
+    type="image/x-icon"
+  />
+</head>
+<body>
+    <section>
+        <form action="/login" method="post" id="loginForm">
+	    <h1>Customer Log In</h1>
+            <div class="inputbox">
+                <ion-icon name="person-outline"></ion-icon>
+                <input type="text" id="username" name="username" required autocomplete="username">
+                <label for="username">Name</label>
+            </div>
+            <div class="inputbox">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+                <input type="password" id="password" name="password" required autocomplete="current-password">
+                <label for="password">Password</label>
+            </div>
+            <button type="submit">Log in</button>
+            <div class="register">
+                <p>Don't have an account? <a href="/req/signup">Register</a></p>
+            </div>
+        </form>             
+    </section>
+    
+    <script>
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const submitButton = document.getElementById("submit");
+    submitButton.addEventListener('click', () => {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        
+        if (!username || !password) {
+            alert("Please enter both username and password.");
+            return;
+        }
+
+        const data = {
+            userName: username,
+            password: password
+        };
+
+        fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result => {   
+            console.log(result); // Log the result for debugging
+            if (result.success) {
+                window.location.href = '/customerinterface/index'; // Redirect to index page
+            } else {
+                alert(result.message || "Invalid Username or Password. Please try again.");
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("An error occurred. Please try again.");
+        });
+    });
+});
+
+    </script>
+</body>
+</html>

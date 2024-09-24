@@ -1,0 +1,52 @@
+build/
+node_modules
+.idea
+/dist
+
+
+# Spring Boot
+target/
+!target/application.properties
+!target/classes/
+!target/generated-sources/
+!target/generated-test-sources/
+!target/test-classes/
+!target/test-results/
+!target/webapp/
+
+# Maven
+.mvn/
+mvnw
+mvnw.cmd
+
+# Gradle
+.gradle/
+build/
+
+# Logs
+log/
+*.log
+*.log.*
+!*.logback
+!*.log4j
+!*.jboss
+
+# IDE-specific files
+.idea/
+*.iml
+*.ipr
+*.iws
+.idea_modules/
+.vscode/
+
+# Eclipse-specific files
+.classpath
+.project
+.settings/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+### VS Code ###
+.vscode/

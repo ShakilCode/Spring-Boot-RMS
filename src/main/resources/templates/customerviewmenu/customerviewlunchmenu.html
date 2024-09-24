@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunch Menu</title>
+    <link rel="icon" href="/images/abc restaurant logo.png" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="/css/aos.css">
+
+    <link rel="stylesheet" href="/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="/css/flaticon.css">
+    <link rel="stylesheet" href="/css/icomoon.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        /* Center container */
+.center-container {
+    text-align: center;
+}
+
+.bg {
+    background-image: url('/images/menu.jpg');
+    background-size: cover; /* Optional: scales the image to cover the entire background */
+    background-repeat: no-repeat; /* Optional: prevents the image from repeating */
+    background-position: center; /* Optional: centers the image */
+}
+
+/* Link styling */
+.link-view-cart {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 10px;
+    background-color: #FF5722; /* Orange background */
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.link-view-cart::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: left 0.4s ease-in-out;
+}
+
+.link-view-cart:hover::before {
+    left: 0;
+}
+
+/* Home link */
+.link-home {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 10px;
+    background-color: #673AB7; /* Purple background */
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.link-home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: left 0.4s ease-in-out;
+}
+
+.link-home:hover::before {
+    left: 0;
+}
+ 
+      /* Global container styling */
+      .containerr {
+          width: 90%;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: #f8f9fa;
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+
+      /* Centering the heading */
+      .text-center {
+          text-align: center;
+      }
+
+      /* Styling for the heading */
+      h1 {
+          font-family: 'Arial', sans-serif;
+          color: #333;
+          font-size: 36px;
+          margin-bottom: 20px;
+          padding-bottom: 10px;
+          border-bottom: 2px solid #ddd;
+      }
+
+      /* Table styles */
+      .table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-bottom: 20px;
+      }
+
+      /* Table header styling */
+      .table thead th {
+          background-color: #6c757d;
+          color: #fff;
+          font-weight: bold;
+          text-align: left;
+          padding: 12px;
+          font-family: 'Arial', sans-serif;
+      }
+
+      /* Table body styling */
+      .table tbody td {
+          padding: 12px;
+          border-bottom: 1px solid #ddd;
+          font-family: 'Arial', sans-serif;
+          color: #555;
+      }
+
+      /* Adding hover effect for rows */
+      .table tbody tr:hover {
+          background-color: #f1f1f1;
+      }
+
+      /* Image styling inside the table */
+      .table tbody img {
+          border-radius: 8px;
+          object-fit: cover;
+      }
+
+      /* 'Order Now' button styling */
+      .table tbody a {
+          background-color: #28a745;
+          color: #fff;
+          padding: 8px 12px;
+          text-decoration: none;
+          border-radius: 5px;
+          font-family: 'Arial', sans-serif;
+          font-size: 14px;
+      }
+
+      /* Button hover effect */
+      .table tbody a:hover {
+          background-color: #218838;
+      }
+
+      /* Responsive table design */
+      @media (max-width: 768px) {
+          .table, .table thead, .table tbody, .table th, .table td, .table tr {
+              display: block;
+              width: 100%;
+          }
+          .table tbody td {
+              text-align: right;
+              padding-left: 50%;
+              position: relative;
+          }
+          .table tbody td::before {
+              content: attr(data-label);
+              position: absolute;
+              left: 0;
+              width: 45%;
+              padding-left: 10px;
+              font-weight: bold;
+              color: #333;
+              text-align: left;
+          }
+          .table thead {
+              display: none;
+          }
+          .table tbody td {
+              border: none;
+              border-bottom: 1px solid #ddd;
+          }
+      }
+  </style>
+
+    <script>
+        function freezeFoodName(button) {
+            // Get the row in which the button exists
+            const row = button.closest("tr");
+
+            // Store the food name in local storage
+            const foodName = row.querySelector("[data-label='Name']").textContent;
+            localStorage.setItem("frozenFoodName", foodName);
+
+            // Allow the default navigation to happen after freezing
+        }
+
+        function freezeFoodCategory(button) {
+    // Get the row in which the button exists
+    const row = button.closest("tr");
+
+    // Store the food category in local storage
+    const foodCategory = row.querySelector("[data-label='Category']").textContent;
+    localStorage.setItem("frozenFoodCategory", foodCategory);
+
+    // Allow the default navigation to happen after freezing
+}
+
+    </script>
+</head>
+<body>
+    <div class="bg">
+    <div class="containerr">
+        <h1 class="text-center my-4">View Lunch Menu</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Image</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="adminAddLunch : ${adminaddlunch}">
+                    <td th:text="${adminAddLunch.id}" data-label="Id"></td>
+                    <td th:text="${adminAddLunch.name}" data-label="Name"></td>
+                    <td th:text="${adminAddLunch.category}" data-label="Category"></td>
+                    <td th:text="${adminAddLunch.description}" data-label="Description"></td>
+                    <td th:text="@{${adminAddLunch.price} + ' LKR'}" data-label="Price"></td>
+                    <td>
+                        <img th:src="@{'/images/' + ${adminAddLunch.imageFileName}}" alt="adminAddLunch Image" width="100">
+                    </td>
+                    <td style="white-space:nowrap;" data-label="Action">
+                        <a href="/customerviewmenu/customerviewlunchmenu" 
+                           onclick="freezeFoodName(this); freezeFoodCategory(this)">Add to cart</a>
+                    </td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="center-container">
+        <a href="/customerinterfaceorderfood/customerorderfood" class="link-view-cart">View Cart</a>
+        <a href="/index" class="link-home">Home</a>
+    </div>
+
+</div>
+
+
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md-6 col-lg-3">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">ABC</h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Open Hours</h2>
+              <ul class="list-unstyled open-hours">
+                <li class="d-flex"><span>Monday</span><span>9:00 - 24:00</span></li>
+                <li class="d-flex"><span>Tuesday</span><span>9:00 - 24:00</span></li>
+                <li class="d-flex"><span>Wednesday</span><span>9:00 - 24:00</span></li>
+                <li class="d-flex"><span>Thursday</span><span>9:00 - 24:00</span></li>
+                <li class="d-flex"><span>Friday</span><span>9:00 - 02:00</span></li>
+                <li class="d-flex"><span>Saturday</span><span>9:00 - 02:00</span></li>
+                <li class="d-flex"><span>Sunday</span><span> 9:00 - 02:00</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Instagram</h2>
+              <div class="thumb d-sm-flex">
+	            	<a href="#" class="thumb-menu img" style="background-image: url(/images/insta-1.jpg);">
+	            	</a>
+	            	<a href="#" class="thumb-menu img" style="background-image: url(/images/insta-2.jpg);">
+	            	</a>
+	            	<a href="#" class="thumb-menu img" style="background-image: url(/images/insta-3.jpg);">
+	            	</a>
+	            </div>
+	            <div class="thumb d-flex">
+	            	<a href="#" class="thumb-menu img" style="background-image: url(/images/insta-4.jpg);">
+	            	</a>
+	            	<a href="#" class="thumb-menu img" style="background-image: url(/images/insta-5.jpg);">
+	            	</a>
+	            	<a href="#" class="thumb-menu img" style="background-image: url(/images/insta-6.jpg);">
+	            	</a>
+	            </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Newsletter</h2>
+            	<p>Far far away, behind the word mountains, far from the countries.</p>
+              <form action="#" class="subscribe-form">
+                <div class="form-group">
+                  <input type="text" class="form-control mb-2 text-center" placeholder="Enter email address">
+                  <input type="submit" value="Subscribe" class="form-control submit px-3">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p><!-- Link back to Shakil can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://Shakil.com" target="_blank">Shakil</a>
+  <!-- Link back to Shakil can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="/js/popper.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/jquery.easing.1.3.js"></script>
+  <script src="/js/jquery.waypoints.min.js"></script>
+  <script src="/js/jquery.stellar.min.js"></script>
+  <script src="/js/owl.carousel.min.js"></script>
+  <script src="/js/jquery.magnific-popup.min.js"></script>
+  <script src="/js/aos.js"></script>
+  <script src="/js/jquery.animateNumber.min.js"></script>
+  <script src="/js/bootstrap-datepicker.js"></script>
+  <script src="/js/jquery.timepicker.min.js"></script>
+  <script src="/js/scrollax.min.js"></script>
+  <script src="/https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="/js/google-map.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

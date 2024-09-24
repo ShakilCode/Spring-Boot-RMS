@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmation Invoice</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="icon" href="/images/abc restaurant logo.png" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="/css/aos.css">
+
+    <link rel="stylesheet" href="/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="/css/flaticon.css">
+    <link rel="stylesheet" href="/css/icomoon.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .invoice-container {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .invoice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .invoice-header img {
+            width: 100px;
+        }
+        .order-status {
+            text-align: right;
+        }
+        .order-status h2 {
+            color: green;
+        }
+        .details-section {
+            margin-bottom: 20px;
+        }
+        .details-section h4 {
+            margin-bottom: 5px;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #download-btn {
+            margin-top: 20px;
+        }
+
+        .bgg {
+    background-color: rgb(176, 230, 255);
+}
+    </style>
+        <link
+        rel="icon"
+        href="/images/abc restaurant logo.png"
+        type="image/x-icon"
+      />
+</head>
+<body class="bgg">
+<div class="">
+    <div class="container invoice-container" id="invoice-content">
+        <!-- Header Section -->
+        <div class="invoice-header">
+            <img src="/images/abc restaurant logo.png" alt="Company Logo">
+            <div class="order-status">
+                <h2>ORDER PLACED SUCCESSFULLY</h2>
+                <p>Order No: <strong>2000158562</strong></p>
+            </div>
+        </div>
+
+        <!-- Sender and Receiver Details -->
+        <div class="row details-section">
+            <div class="col-md-6">
+                <h4>SENDER DETAILS</h4>
+                <tr th:each="customerMakePayment : ${customerpayment}">
+                  <td th:text="${customerMakePayment.name}"></td>
+              </tr>
+            </div>
+            <div class="col-md-6 text-md-right">
+                <h4>RECEIVER DETAILS</h4>
+                <p>ABC Restaurant Staff</p>
+                <p>Contact No: 0761234567</p>
+            </div>
+        </div>
+
+        <!-- Table for Payment Details -->
+        <table class="table table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Id</th>
+                    <th>Card Number</th>
+                    <th>Payment Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="customerMakePayment : ${customerpayment}">
+                    <td th:text="${customerMakePayment.id}"></td>
+                    <td th:text="${customerMakePayment.cardnumber}"></td>
+                    <td><h3>Payment Sent</h3></td>
+                    <td style="white-space:nowrap;">
+                        <a class="btn btn-danger btn-sm"
+                           th:href="@{/customerpayment/delete(id=${customerMakePayment.id})}"
+                           onclick="return confirm('Are you sure?')">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Footer Section -->
+        <div class="footer">
+            <p>All amounts are in Sri Lankan Rupees (LKR)</p>
+            <p>This is a computer generated invoice. No verification is required.</p>
+        </div>
+    </div>
+
+    <!-- Download as PDF Button -->
+    <div class="text-center" style="color: bisque;">
+      <button id="download-btn" class="btn btn-primary" style="text-align: center; margin: 20px;">Download the invoice</button>
+  </div>
+  
+  <a href="/customerinterface/index" style="text-align: center; margin: 20px; display: block; ">Back to home page</a>
+</div>
+
+
+  <footer class="ftco-footer ftco-bg-dark ftco-section">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-6 col-lg-3">
+          <div class="ftco-footer-widget mb-4">
+            <h2 class="ftco-heading-2">ABC</h2>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
+              <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+              <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+              <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="ftco-footer-widget mb-4">
+            <h2 class="ftco-heading-2">Open Hours</h2>
+            <ul class="list-unstyled open-hours">
+              <li class="d-flex"><span>Monday</span><span>9:00 - 24:00</span></li>
+              <li class="d-flex"><span>Tuesday</span><span>9:00 - 24:00</span></li>
+              <li class="d-flex"><span>Wednesday</span><span>9:00 - 24:00</span></li>
+              <li class="d-flex"><span>Thursday</span><span>9:00 - 24:00</span></li>
+              <li class="d-flex"><span>Friday</span><span>9:00 - 02:00</span></li>
+              <li class="d-flex"><span>Saturday</span><span>9:00 - 02:00</span></li>
+              <li class="d-flex"><span>Sunday</span><span> 9:00 - 02:00</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+           <div class="ftco-footer-widget mb-4">
+            <h2 class="ftco-heading-2">Instagram</h2>
+            <div class="thumb d-sm-flex">
+                  <a href="#" class="thumb-menu img" style="background-image: url(/images/insta-1.jpg);">
+                  </a>
+                  <a href="#" class="thumb-menu img" style="background-image: url(/images/insta-2.jpg);">
+                  </a>
+                  <a href="#" class="thumb-menu img" style="background-image: url(/images/insta-3.jpg);">
+                  </a>
+              </div>
+              <div class="thumb d-flex">
+                  <a href="#" class="thumb-menu img" style="background-image: url(/images/insta-4.jpg);">
+                  </a>
+                  <a href="#" class="thumb-menu img" style="background-image: url(/images/insta-5.jpg);">
+                  </a>
+                  <a href="#" class="thumb-menu img" style="background-image: url(/images/insta-6.jpg);">
+                  </a>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Newsletter</h2>
+              <p>Far far away, behind the word mountains, far from the countries.</p>
+            <form action="#" class="subscribe-form">
+              <div class="form-group">
+                <input type="text" class="form-control mb-2 text-center" placeholder="Enter email address">
+                <input type="submit" value="Subscribe" class="form-control submit px-3">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+
+          <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script src="/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.easing.1.3.js"></script>
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.stellar.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/jquery.magnific-popup.min.js"></script>
+<script src="/js/aos.js"></script>
+<script src="/js/jquery.animateNumber.min.js"></script>
+<script src="/js/bootstrap-datepicker.js"></script>
+<script src="/js/jquery.timepicker.min.js"></script>
+<script src="/js/scrollax.min.js"></script>
+<script src="/https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="/js/google-map.js"></script>
+<script src="/js/main.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <!-- Include html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+
+    <script>
+        document.getElementById('download-btn').addEventListener('click', function () {
+            var element = document.getElementById('invoice-content');
+            html2pdf().from(element).save('ABC Restaurant Invoice.pdf');
+        });
+    </script>
+</body>
+</html>
