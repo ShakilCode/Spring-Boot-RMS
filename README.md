@@ -81,7 +81,7 @@ The RMS is tailored for restaurant owners and staff who seek an efficient and in
 ### Front-end
 - HTML
 - CSS
-- Java scrip
+- JavaScript
 - Bootstrap
 
 ### Back-end
